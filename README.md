@@ -2,11 +2,11 @@
 GitPython Fullstack Project
 
 Requirements:
-Have git installed
-Have Python 3.6+ installed 
-Have npm 6.13.4 installed
-Have node 12.16.1 installed
-Have virtualenv installed
+* Have git installed
+* Have Python 3.6+ installed 
+* Have npm 6.13.4 installed
+* Have node 12.16.1 installed
+* Have virtualenv installed
 
 #Instructions:
 
