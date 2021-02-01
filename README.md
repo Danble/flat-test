@@ -8,7 +8,7 @@ Requirements:
 * Have node 12.16.1 installed
 * Have virtualenv installed
 
-#Instructions:
+# Instructions:
 
 1) Clone this repo -> `git clone https://github.com/Danble/flat-test.git`
 ## Backend instructions
@@ -17,7 +17,7 @@ Requirements:
 4) (Windows) activate virtualenv -> `./flat-back/Scripts/activate`
    (Linux) activate virtualenv -> `source flat-back/bin/activate`
 5) Install dependencies -> `pip install gitdb gitpython flask`
-6) Inside flat-back/flaskr/ folder clone the repo we are going to work -> `git clone https://github.com/Danble/fullstack-interview-test.git`
+6) Inside flat-back/flaskr/ folder clone the repo we are going to work -> `git clone https://github.com/Danble/fullstack-interview-test.git`. You can link other branches or create your own branches inside this repo and they will be displayed when you run the frontend.
 7) Go one folder back and run backend -> `python flaskr/app.py` 
 
 ## Fronted instructions
