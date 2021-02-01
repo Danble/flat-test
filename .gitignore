@@ -1,0 +1,32 @@
+.vscode/
+flat-back/instance/
+flat-back/flat-back/
+flat-back/flaskr/fullstack-interview-test/
+flat-back/flaskr/__pycache__/
+flat-front/node_modules/
+flat-front/.git
+flat-front/.gitignore
+
+flask-front/.DS_Store
+flask-front/node_modules
+flask-front/dist
+
+
+# local env files
+flask-front/.env.local
+flask-front/.env.*.local
+
+# Log files
+flask-front/npm-debug.log*
+flask-front/yarn-debug.log*
+flask-front/yarn-error.log*
+flask-front/pnpm-debug.log*
+
+# Editor directories and files
+flask-front/.idea
+flask-front/.vscode
+flask-front/*.suo
+flask-front/*.ntvs*
+flask-front/*.njsproj
+flask-front/*.sln
+flask-front/*.sw?
