@@ -17,9 +17,8 @@ Requirements:
 4) (Windows) activate virtualenv -> `./flat-back/Scripts/activate`
    (Linux) activate virtualenv -> `source flat-back/bin/activate`
 5) Install dependencies -> `pip install gitdb gitpython flask`
-6) Run backend -> `python flaskr/app.py`
-
-7) Create a new folder an init a new repo (or clone the repo you want to work with) inside flat-back/flaskr/ folder. 
+6) Inside flat-back/flaskr/ folder clone the repo we are going to work -> `git clone https://github.com/Danble/fullstack-interview-test.git`
+7) Go one folder back and run backend -> `python flaskr/app.py` 
 
 ## Fronted instructions
 8) From the git root go to flat-front folder -> `cd flat-front/`
