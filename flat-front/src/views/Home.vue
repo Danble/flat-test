@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1 class="header">Flat Test</h1>
+    <instructions class="info" />
     <ul class="collection with-header">
       <li class="collection-header"><h4>Branches</h4></li>
       <li v-for="branch in branches" :key="branch" class="collection-item">
@@ -30,6 +31,11 @@ li > p {
   cursor: pointer;
 }
 
+.info {
+  float: left;
+  margin-left: 3.5rem;
+}
+
 .collection {
   width: 30%;
   margin-left: 35%;
@@ -49,6 +55,7 @@ li > p {
 
 <script>
 import axios from 'axios'
+import Instructions from '@/components/Instructions.vue'
 
 export default {
   data() {
@@ -62,11 +69,13 @@ export default {
 
   name: 'Home',
 
-  components: {},
+  components: {
+    Instructions
+  },
 
   methods: {
     getBranches() {
-      axios.get('http://127.0.0.1:5000/branches/')
+      axios.get(axios.defaults.baseURL)
     .then(res => {
       this.branches = res.data
     })
@@ -85,7 +94,6 @@ export default {
           document.getElementById(old_branch).style.backgroundColor = "#fff"
         }
         this.items_to_merge.push(branch)
-        label.style.backgroundColor = "#26a69a"
       } else {
         let index = this.items_to_merge.indexOf(branch)
         this.items_to_merge.splice(index, 1)
@@ -95,10 +103,10 @@ export default {
 
     mergeBranches() {
       let data = {
-        "branch1": this.items_to_merge[0],
-        "branch2": this.items_to_merge[1]
+        "branch_to_merge": this.items_to_merge[0],
+        "branch_merge_into": this.items_to_merge[1]
       }
-      axios.post(`http://127.0.0.1:5000/branches/merge/${JSON.stringify(data)}`)
+      axios.post(`${axios.defaults.baseURL}merge/${JSON.stringify(data)}`)
       .then(res => console.log(res))
       .catch(err => console.log(err))
     }
@@ -106,7 +114,12 @@ export default {
 
   watch: {
     items_to_merge() {
+      if (this.items_to_merge.length === 1) {
+        document.getElementById(this.items_to_merge[0]).style.backgroundColor = "#26a69a"
+      }
       if (this.items_to_merge.length === 2) {
+        document.getElementById(this.items_to_merge[0]).style.backgroundColor = "#26a69a"
+        document.getElementById(this.items_to_merge[1]).style.backgroundColor = "#4e5f7a"
         this.mergeButton = true
       } else {
         this.mergeButton = false
@@ -115,6 +128,7 @@ export default {
   },
 
   created() {
+    axios.defaults.baseURL = 'http://127.0.0.1:5000/branches/'
     this.getBranches()
   }
 }

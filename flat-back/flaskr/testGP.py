@@ -58,6 +58,9 @@ print(next(generator).committed_date)
 print(next(generator).committed_datetime)
 print(next(generator).count()) """
 
-""" base = repo.merge_base(alfonso, master)
+""" 
+master = repo.branches['master']
+alfonso = ...
+base = repo.merge_base(alfonso, master)
 repo.index.merge_tree(master, base=base)
 print(repo.index.commit('my test merge', parent_commits=(master.commit, alfonso.commit))) """

@@ -1,9 +1,12 @@
 from flask import (Blueprint, jsonify, request)
 from git import Repo
+from datetime import date
 import git 
+import json
+
 
 bp = Blueprint('branches', __name__, url_prefix='/branches')
-repo = Repo('fullstack-interview-test/')
+repo = Repo('flaskr/fullstack-interview-test/')
 
 @bp.route('/', methods=['GET'])
 def branch():
@@ -34,7 +37,14 @@ def commits(branch):
 @bp.route('/merge/<branches>', methods=['POST'])
 def merge(branches):
   if request.method == 'POST':
-    print(branches)
+    branches = json.loads(branches)
+
+    branch_to_merge = repo.branches[branches['branch_to_merge']]
+    branch_merge_into = repo.branches[branches['branch_merge_into']]
+    base = repo.merge_base(branch_to_merge, branch_merge_into)
+    repo.index.merge_tree(branch_merge_into, base=base)
+    repo.index.commit('merged in flat test {}'.format(date.today()), parent_commits=(branch_merge_into.commit, branch_to_merge.commit))
+
     data = {'status': 'ok'}
     response = jsonify(data)
     response.headers.add('Access-Control-Allow-Origin', 'http://localhost:8080')

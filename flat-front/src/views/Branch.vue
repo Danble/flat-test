@@ -27,7 +27,7 @@ export default {
 
   methods: {
     getCommits(branch) {
-      axios.get(`http://127.0.0.1:5000/branches/commits/${branch}`)
+      axios.get(`${axios.defaults.baseURL}commits/${branch}`)
       .then(res => {
         this.commits = res.data
       })
