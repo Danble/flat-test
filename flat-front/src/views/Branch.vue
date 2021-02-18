@@ -27,7 +27,11 @@ export default {
 
   methods: {
     getCommits(branch) {
-      axios.get(`${axios.defaults.baseURL}commits/${branch}`)
+      axios({
+        url: 'commits',
+        baseURL: axios.defaults.baseURL,
+        params: {"branch": branch}
+      })
       .then(res => {
         this.commits = res.data
       })

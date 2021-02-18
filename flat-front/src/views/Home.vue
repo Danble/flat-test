@@ -37,6 +37,7 @@ li > p {
 }
 
 .collection {
+  min-width: 300px;
   width: 30%;
   margin-left: 35%;
   border: 1px solid rgb(6, 146, 6)
@@ -50,6 +51,24 @@ li > p {
 .collection > .collection-item > p:hover {
   border: thick double rgb(55, 91, 145);
   background-color: rgb(211, 225, 240);
+  margin-top: calc(var(--margin_height) - 5px);
+  margin-bottom: calc(var(--margin_height) - 5px);
+}
+
+@media screen and (max-width: 1000px) {
+  .collection {
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 632px) {
+  .info {
+    float: none;
+    margin: auto;
+    max-width: 300px;
+    min-width: 299px;
+  }
 }
 </style>
 

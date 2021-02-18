@@ -9,6 +9,10 @@
 </template>
 
 <style>
+:root {
+  --margin_height: 1em;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
